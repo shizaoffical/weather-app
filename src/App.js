@@ -1,25 +1,15 @@
-import logo from './logo.svg';
+import Temperature from "./wether/Temperature";
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+       <Temperature/>
     </div>
+
+
+
   );
 }
-
+// https://api.openweathermap.org/data/2.5/weather?q=pune&appid=27f347816e59fcb8b97927b2379fab7a
 export default App;
