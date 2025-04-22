@@ -3,19 +3,21 @@ import WetherCard from './WetherCard';
 // import axios from 'axios';
 export default function Temp() {
 
-const [searchValue, setSearchvalue] = useState("faisalabad");
+const [searchValue, setSearchvalue] = useState("Faisalabad");
   const [temperature, setTemperature] = useState({});
 
 const getwetherinfo = async() => {
     try {
       const url = (`https://api.openweathermap.org/data/2.5/weather?q=${searchValue}&units=metric&appid=27f347816e59fcb8b97927b2379fab7a`);
       const res = await fetch(url)
+      console.log(res);
       const data = await res.json();
+      console.log(data)
       const { temp, humidity, pressure } = data.main;
       const { main: weathermood } = data.weather[0];
       const { name } = data;
       const { speed } = data.wind;
-      const { country, sunset } = data.sys;
+      const { country, sunset } = data.sys; 
       
       const myNewWeatherInfo = {
         temp,
@@ -32,22 +34,20 @@ const getwetherinfo = async() => {
      catch (error) {
       console.log(error)
     
-      alert('something went wrong, try again');
+      alert('Spelling Mistake, Try Again');
     }
  }
 
    useEffect(() => {getwetherinfo()}, []);
   return (
     <>
-    <div className='wrap'>
-      {/* <form action=""> */}
-        <div className='search'></div>
-      {/* </form> */}
-     dfd
-     <input type="search" placeholder='search...' id='search' className='searchTerm' value={searchValue} 
-      onChange={(e) => setSearchvalue(e.target.value)}/>
-     <button className='searchButton' type='button' onClick={getwetherinfo}>search</button>
-    </div>
+    <form className='wrap'  >
+        <input type="search" placeholder='search...' id='search' className='searchTerm' value={searchValue} 
+        onChange={(e) => setSearchvalue(e.target.value)}/>
+        {/* <button className='searchButton' type='button' onClick={getwetherinfo}>search</button> */}
+        <button className='searchButton' type='button' onClick={getwetherinfo} >search</button>
+
+    </form>
  
  <WetherCard propetempperature={temperature}/>
 

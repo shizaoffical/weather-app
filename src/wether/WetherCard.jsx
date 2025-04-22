@@ -28,7 +28,6 @@ export default function WetherCard(props) {
                 case "Mist":
                     setWethermoodstate("wi-dust");
                   break;
-        
                 default:
                     setWethermoodstate("wi-day-sunny");
                   break;
@@ -56,7 +55,7 @@ export default function WetherCard(props) {
        <div className="extra-temp">
           <div className="temp-info-minmax">
                 <div className="two-sided-section"><p><i className={"wi wi-sunset"}></i> </p>
-                     <p className="extra-info-leftside">{timestr}<br/>Sunset</p>
+                     <p className="extra-info-leftside">{timestr}<br/>Time</p>
                 </div>
                 <div className="two-sided-section"><p><i className={"wi wi-humidity"}></i> </p>
                      <p className="extra-info-leftside"> {humidity}<br />Humidity</p>
